@@ -3,55 +3,37 @@
 > A curated, battle-tested collection of **89+ production-grade system rules** for **Cursor (.mdc)**, **Anthropic Claude Code (CLAUDE.md)**, **AGENTS.md**, **GitHub Copilot**, and **Windsurf**.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
-[![CLI: warplogic](https://img.shields.io/badge/CLI-npx%20warplogic-blue.svg)](https://www.npmjs.com/package/warplogic)
+[![Rules Count: 89+](https://img.shields.io/badge/Rules-89%2B%20Verified-blue.svg)](https://www.warplogicai.com/prompts)
 [![Web Directory](https://img.shields.io/badge/Web-warplogicai.com-cyan.svg)](https://www.warplogicai.com)
 
 ---
 
-## ⚡ Instant 1-Click Pull (No Installation Required)
+## ⚡ Instant 1-Click Pull (Zero Setup)
 
-Run directly in your terminal in any project root:
+Download and install any rule directly into your project using `curl`:
 
 ```bash
-# Auto-detects your workspace (.cursor/, CLAUDE.md, AGENTS.md, .github/)
-npx warplogic add nextjs-14-15-app-router-cursorrules
+# 1. Cursor IDE (.cursor/rules/*.mdc)
+mkdir -p .cursor/rules && curl -sL "https://www.warplogicai.com/api/v1/prompts/nextjs-14-15-app-router-cursorrules/raw?tool=cursor" -o .cursor/rules/nextjs-rules.mdc
 
-# Or specify a target AI tool explicitly:
-npx warplogic add python-fastapi-pydantic-cursorrules --tool=cursor   # .cursor/rules/*.mdc
-npx warplogic add python-fastapi-pydantic-cursorrules --tool=claude   # appends to CLAUDE.md
-npx warplogic add python-fastapi-pydantic-cursorrules --tool=agents   # appends to AGENTS.md
-npx warplogic add python-fastapi-pydantic-cursorrules --tool=copilot  # .github/copilot-instructions.md
+# 2. Anthropic Claude Code (CLAUDE.md)
+curl -sL "https://www.warplogicai.com/api/v1/prompts/python-fastapi-pydantic-cursorrules/raw?tool=claude" >> CLAUDE.md
+
+# 3. AGENTS.md Standard (Codex, Devin, Jules, Amp)
+curl -sL "https://www.warplogicai.com/api/v1/prompts/supabase-pgvector-vector-search-cursorrules/raw?tool=agents" >> AGENTS.md
+
+# 4. GitHub Copilot (.github/copilot-instructions.md)
+mkdir -p .github && curl -sL "https://www.warplogicai.com/api/v1/prompts/docker-compose-production-hardening-cursorrules/raw?tool=copilot" >> .github/copilot-instructions.md
 ```
 
 ---
 
-## 🤖 Model Context Protocol (MCP) Server
+## 🎛️ Interactive Stack Rule Builder & Linter
 
-Connect Warplogic directly to Cursor, Claude Desktop, or Claude Code so your AI assistant can autonomously search and fetch rules on demand:
+Instead of managing static files by hand, use the free in-browser tools on Warplogic AI:
 
-### Cursor IDE (`.cursor/mcp.json`)
-```json
-{
-  "mcpServers": {
-    "warplogic": {
-      "command": "npx",
-      "args": ["-y", "warplogic", "mcp"]
-    }
-  }
-}
-```
-
-### Claude Desktop (`claude_desktop_config.json`)
-```json
-{
-  "mcpServers": {
-    "warplogic": {
-      "command": "npx",
-      "args": ["-y", "warplogic", "mcp"]
-    }
-  }
-}
-```
+- 🛠️ **[Interactive AI Stack Rule Builder](https://www.warplogicai.com/builder)**: Select your framework (Next.js 15, FastAPI, SvelteKit, Go, Rust), database (Supabase, Neon, Prisma, Drizzle), and security guardrails to generate a unified, production-ready rule in 1 click.
+- 🔍 **[AI Rule Linter & Security Auditor](https://www.warplogicai.com/linter)**: Paste your existing prompt to scan for token bloat, leaked API secrets, and conflicting negative constraints with 1-click auto-fix.
 
 ---
 
